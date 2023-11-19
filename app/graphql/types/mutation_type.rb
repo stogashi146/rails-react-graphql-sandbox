@@ -8,5 +8,10 @@ module Types
     # def test_field
     #   "Hello World"
     # end
+
+    # create_bookミューテーションが呼ばれたら、Mutations::CreateBookクラスのresolveメソッドが呼ばれる
+    field :create_book, mutation: Mutations::CreateBook
+    field :update_book, mutation: Mutations::UpdateBook
+    field :delete_book, mutation: Mutations::DeleteBook
   end
 end
