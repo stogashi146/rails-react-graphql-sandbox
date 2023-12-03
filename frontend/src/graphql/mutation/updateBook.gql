@@ -1,0 +1,8 @@
+mutation updateBook($id: ID!, $params: BookAttributes!) {
+  updateBook(input: { id: $id, params: $params }) {
+    book {
+      id
+      title
+    }
+  }
+}

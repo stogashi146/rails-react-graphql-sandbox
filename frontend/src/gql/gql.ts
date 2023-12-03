@@ -13,7 +13,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query books {\n    books {\n      id\n      title\n    }\n  }\n": types.BooksDocument,
+    "mutation createBook($params: BookAttributes!) {\n  createBook(input: {params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}": types.CreateBookDocument,
+    "mutation deleteBook($id: ID!) {\n  deleteBook(input: {id: $id}) {\n    id\n  }\n}": types.DeleteBookDocument,
+    "mutation updateBook($id: ID!, $params: BookAttributes!) {\n  updateBook(input: {id: $id, params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}": types.UpdateBookDocument,
+    "query books {\n  books {\n    id\n    title\n  }\n}": types.BooksDocument,
 };
 
 /**
@@ -33,7 +36,19 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query books {\n    books {\n      id\n      title\n    }\n  }\n"): (typeof documents)["\n  query books {\n    books {\n      id\n      title\n    }\n  }\n"];
+export function graphql(source: "mutation createBook($params: BookAttributes!) {\n  createBook(input: {params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}"): (typeof documents)["mutation createBook($params: BookAttributes!) {\n  createBook(input: {params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "mutation deleteBook($id: ID!) {\n  deleteBook(input: {id: $id}) {\n    id\n  }\n}"): (typeof documents)["mutation deleteBook($id: ID!) {\n  deleteBook(input: {id: $id}) {\n    id\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "mutation updateBook($id: ID!, $params: BookAttributes!) {\n  updateBook(input: {id: $id, params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}"): (typeof documents)["mutation updateBook($id: ID!, $params: BookAttributes!) {\n  updateBook(input: {id: $id, params: $params}) {\n    book {\n      id\n      title\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query books {\n  books {\n    id\n    title\n  }\n}"): (typeof documents)["query books {\n  books {\n    id\n    title\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

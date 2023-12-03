@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 【GraphQL 開発超入門】React × GraphQL × Rails でアプリケーションを作る
 
-Things you may want to cover:
+[Zenn](https://zenn.dev/lilac/books/37bdf5d90b5f9b)
 
-* Ruby version
+## Howto
 
-* System dependencies
+#### Rails 起動
 
-* Configuration
+`rails s`
 
-* Database creation
+#### React 起動
 
-* Database initialization
+`npm start`
 
-* How to run the test suite
+####　 GraphQL コード生成
+`npm run codegen`
+※graphql.ts に生成されるが、一部関数が重複して生成されてしまうので手動で削除する
 
-* Services (job queues, cache servers, search engines, etc.)
+## ライブラリ
 
-* Deployment instructions
-
-* ...
+- Rails6
+- React18
+- ApolloClient
+- GraphQL Code Generator

@@ -1,0 +1,8 @@
+mutation createBook($params: BookAttributes!) {
+  createBook(input: { params: $params }) {
+    book {
+      id
+      title
+    }
+  }
+}
